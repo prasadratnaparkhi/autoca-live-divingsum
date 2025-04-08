@@ -1,0 +1,26 @@
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status-icon {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.status-text {
+  font-size: 0.8em;
+}
+
+.live {
+  background-color: green;
+  color: green;
+}
+
+.offline {
+  background-color: gray;
+  color: gray;
+}
