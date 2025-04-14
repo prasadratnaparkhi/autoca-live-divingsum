@@ -30,7 +30,7 @@ export const routes: Routes = [
         path: 'drivingsummary',
         loadComponent: () => import('./drivingsummary/drivingsummary.component').then(m => m.DrivingsummaryComponent),
         data: {
-          title: 'Odometer logs'
+          title: 'Driving Summary'
         }
       },
       {
@@ -89,20 +89,20 @@ export const routes: Routes = [
           title: 'Trips'
         }
       },
-      {
-        path: 'colors',
-        loadComponent: () => import('./colors.component').then(m => m.ColorsComponent),
-        data: {
-          title: 'Live'
-        }
-      },
-      {
-        path: 'typography',
-        loadComponent: () => import('./typography.component').then(m => m.TypographyComponent),
-        data: {
-          title: 'Typography'
-        }
-      }
+      //{
+        //path: 'colors',
+        //loadComponent: () => import('./colors.component').then(m => m.ColorsComponent),
+        //data: {
+          //title: 'Live'
+        //}
+      //},
+      //{
+        //path: 'typography',
+        //loadComponent: () => import('./typography.component').then(m => m.TypographyComponent),
+        //data: {
+          //title: 'Typography'
+        //}
+      //}
     ]
   }
 ];
