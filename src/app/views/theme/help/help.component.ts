@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { CategoryScale } from 'chart.js';
 
 @Component({
-  selector: 'app-theme-help',
-  imports: [],
-  templateUrl: './help.component.html',
-  styleUrl: './help.component.scss'
+    selector: 'app-theme-help',
+    standalone: true,
+    templateUrl: './help.component.html',
+    styleUrls: ['./help.component.scss'],
 })
-export class HelpComponent {
-
+export class HelpComponent {(
+    constructor() {} CategoryScale
+)
+ 
 }

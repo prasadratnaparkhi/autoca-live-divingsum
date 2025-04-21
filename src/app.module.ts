@@ -1,26 +1,46 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- Import FormsModule
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field'; // Import MatFormFieldModule
+import { MatInputModule } from '@angular/material/input';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app/app.component';
+import { DigitaldocumentsComponent } from './app/views/theme/digitaldocuments/digitaldocuments.component';
+import { HelpComponent } from './app/views/theme/help/help.component';
+import { OdometerlogsComponent } from './app/views/theme/odometerlogs/odometerlogs.component';
+import { PrivacypolicyComponent } from './app/views/theme/privacypolicy/privacypolicy.component';
+import { ServicehistoryComponent } from './app/views/theme/servicehistory/servicehistory.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    DrivingSummaryComponent // Make sure to declare your component here
+    OdometerlogsComponent,
+    ServicehistoryComponent,
+    PrivacypolicyComponent,
+    HelpComponent,
+    DigitaldocumentsComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,  // <-- Add FormsModule here
-    MatToolbarModule,
-    MatSidenavModule,
-    MatListModule,
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatFormFieldModule, // Make sure MatFormFieldModule is imported
+    MatInputModule,
+    MatSortModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    RouterModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

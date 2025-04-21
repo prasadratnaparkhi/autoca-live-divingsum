@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
   styleUrl: './digitaldocuments.component.scss'
 })
 export class DigitaldocumentsComponent {
-
 }

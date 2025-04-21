@@ -26,7 +26,7 @@ export const routes: Routes = [
         path: 'theme',
         loadChildren: () => import('./views/theme/routes').then((m) => m.routes)
       },
-      {
+     /* {
         path: 'base',
         loadChildren: () => import('./views/base/routes').then((m) => m.routes)
       },
@@ -57,7 +57,7 @@ export const routes: Routes = [
       {
         path: 'pages',
         loadChildren: () => import('./views/pages/routes').then((m) => m.routes)
-      }
+      }*/
     ]
   },
   {

@@ -1,18 +1,19 @@
-// src/app/views/theme/drivingsummary/drivingsummary.component.ts
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
 /**
- * @title Table with sorting, button, and form (Assuming this is what DrivingsummaryComponent is now)
+ * @title Table with sorting, button, and form
  */
 @Component({
-  selector: 'app-theme-odometerlogs', // Keep your desired selector
+  selector: 'app-theme-odometerlogs',
   standalone: true,
   imports: [
     MatTableModule,
@@ -20,18 +21,22 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     FormsModule,
     CommonModule,
   ],
-  templateUrl: './odometerlogs.component.html', // Adjust if your template name is different
-  styleUrl: './odometerlogs.component.scss', // Adjust if your style URL is different
+  templateUrl: './odometerlogs.component.html',
+  styleUrls: ['./odometerlogs.component.scss'],
 })
-export class OdometerlogsComponent implements AfterViewInit { // Ensure this class name matches routes.ts
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+export class OdometerlogsComponent implements AfterViewInit {
+  displayedColumns: string[] = ['position', 'date', 'reading', 'place'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  newItemName = '';
-  newItemWeight: number | null = null;
-  newItemSymbol = '';
+
+  newPosition: number | null = null;
+  newDate: Date | null = null;
+  newReading: number | null = null;
+  newPlace: string = '';
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -40,49 +45,38 @@ export class OdometerlogsComponent implements AfterViewInit { // Ensure this cla
   }
 
   addItem() {
-    if (this.newItemName && this.newItemWeight !== null && this.newItemSymbol) {
+    if (this.newPosition != null && this.newDate !== null && this.newReading != null && this.newPlace) {
       this.dataSource.data = [
         ...this.dataSource.data,
         {
-          position: this.dataSource.data.length + 1,
-          name: this.newItemName,
-          weight: this.newItemWeight,
-          symbol: this.newItemSymbol,
+          position: this.newPosition,
+          date: new Date(this.newDate),
+          reading: this.newReading,
+          place: this.newPlace,
         },
       ];
-      this.newItemName = '';
-      this.newItemWeight = null;
-      this.newItemSymbol = '';
+
+      // Reset form fields
+      this.newPosition = null;
+      this.newDate = null;
+      this.newReading = null;
+      this.newPlace = '';
     }
   }
 }
 
-export interface Element {
-  name: string;
+export interface ServiceRecord {
   position: number;
-  weight: number;
-  symbol: string;
+  date: Date;
+  reading: number;
+  place: string;
 }
 
-const ELEMENT_DATA: Element[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na' },
-  { position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg' },
-  { position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al' },
-  { position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si' },
-  { position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P' },
-  { position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S' },
-  { position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl' },
-  { position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar' },
-  { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
-  { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
+const ELEMENT_DATA: ServiceRecord[] = [
+  { position: 1, date: new Date('2024-01-01'), reading: 1041, place: 'Pune' },
+  { position: 2, date: new Date('2024-04-01'), reading: 2212, place: 'Mumbai' },
+  { position: 3, date: new Date('2024-07-02'), reading: 3545, place: 'Pune' },
+  { position: 3, date: new Date('2024-10-01'), reading: 4101, place: 'Pune' },
+  { position: 3, date: new Date('2025-01-02'), reading: 5323, place: 'Pune' },
+  // Add more service records here
 ];

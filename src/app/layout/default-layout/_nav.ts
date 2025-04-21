@@ -69,7 +69,7 @@ export const navItems: INavData[] = [
     url: '/theme/help',
     iconComponent: { name: 'cil-drop' }
   },
-  {
+  /*{
     name: 'Colors',
     url: '/theme/colors',
     iconComponent: { name: 'cil-drop' }
@@ -343,5 +343,5 @@ export const navItems: INavData[] = [
     url: 'https://coreui.io/angular/docs/',
     iconComponent: { name: 'cil-description' },
     attributes: { target: '_blank' }
-  }
+  }*/
 ];
