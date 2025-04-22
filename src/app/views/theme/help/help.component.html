@@ -1,1 +1,20 @@
-<p>Help Works !!!! </p>
+<div class="help-container">
+  <h2>Need Help?</h2>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Category</mat-label>
+    <mat-select [(ngModel)]="category" name="category" required>
+      <mat-option value="ask-expert">Ask an Expert</mat-option>
+      <mat-option value="report-bug">Report a Bug</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Question</mat-label>
+    <textarea matInput [(ngModel)]="question" name="question" rows="5" required></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="submitHelpRequest()" [disabled]="!category || !question">
+    Submit
+  </button>
+</div>

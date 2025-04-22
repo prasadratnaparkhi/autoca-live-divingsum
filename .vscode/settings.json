@@ -2,5 +2,7 @@
     "cSpell.words": [
         "componentproperty",
         "Drivingsummary"
-    ]
+    ],
+    "search.useGlobalIgnoreFiles": true,
+    "typescript.suggest.autoImports": false
 }
