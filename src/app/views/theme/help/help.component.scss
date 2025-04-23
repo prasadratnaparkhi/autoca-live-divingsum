@@ -1,26 +1,8 @@
-.help-container {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 400px;
-  margin: 20px;
+mat-form-field {
+  width: 200px;
+  margin-right: 16px;
+}
+table {
+  width: 100%;
+}
 
-  h2 {
-    margin-bottom: 20px;
-  }
-
-  mat-form-field {
-    width: 100%;
-    margin-bottom: 15px;
-  }
-
-  textarea {
-    resize: vertical; /* Allow vertical resizing of the textarea */
-  }
-
-  button {
-    margin-top: 10px;
-  }
-} 
