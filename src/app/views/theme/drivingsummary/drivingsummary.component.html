@@ -1,8 +1,24 @@
-<h1>GeeksforGeeks</h1> 
-<h4>PrimeNG ProgressBar Component</h4> 
-<div class="card"> 
-  <h5>Dynamic (with status value)</h5> 
-  <p-progressBar [value]="gfg1"></p-progressBar> 
-  <h5>Dynamic (without status value)</h5> 
-  <p-progressBar [showValue]='false' [value]="gfg2"></p-progressBar> 
-</div>
+<div class="container">
+  <h2>Activities</h2>
+  <h3> Last Week's Driving Summary</h3>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="drivedon">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Drived on </th>
+      <td mat-cell *matCellDef="let element"> {{element.drivedon | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Duration (mins)
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="distance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Distance (kms)
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.distance}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

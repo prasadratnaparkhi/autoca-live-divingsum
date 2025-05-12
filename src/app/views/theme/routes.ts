@@ -54,13 +54,13 @@ export const routes: Routes = [
           title: 'Analytics Reports'
         }
       },
-      {
+      /*{
         path: 'digitaldocuments',
         loadComponent: () => import('./digitaldocuments/digitaldocuments.component').then(m => m.DigitaldocumentsComponent),
         data: {
           title: 'Digital Documents'
         }
-      },
+      }, */
       {
         path: 'privacypolicy',
         loadComponent: () => import('./privacypolicy/privacypolicy.component').then(m => m.PrivacypolicyComponent),

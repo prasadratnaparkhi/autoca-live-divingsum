@@ -1,1 +1,13 @@
-<p>Roadside Assistance Works !!!</p>
+<h1>Roadside Assistance</h1>
+<h3> You are near : </h3>
+<h4> 1234, Kothrud, Pune 411038, Maharashtra, India </h4>
+<div style="height: 500px; width: 100%;">
+  <google-map
+    [center]="center"
+    [zoom]="zoom"
+    [options]="mapOptions">
+    <map-marker
+      [position]="markerPosition"
+      [options]="markerOptions"></map-marker>
+  </google-map>
+</div>
