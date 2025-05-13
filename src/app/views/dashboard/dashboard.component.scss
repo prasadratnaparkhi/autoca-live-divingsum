@@ -1,7 +1,70 @@
 :host {
-  .legend {
-    small {
-      font-size: x-small;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+
+  .greeting {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+
+  .status {
+    font-size: 1rem;
+    color: #27ae60;
+    margin-top: 0.3rem;
+  }
+
+  .last-seen {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-top: 0.2rem;
+  }
+
+  .navigate {
+    margin-top: 0.8rem;
+
+    a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
+  }
+}
+
+.today-summary {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+
+  .label {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 0.4rem;
+  }
+
+  .car-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3436;
+  }
+
+  .travelled {
+    font-size: 1rem;
+    color: #636e72;
+    margin-top: 0.4rem;
   }
 }

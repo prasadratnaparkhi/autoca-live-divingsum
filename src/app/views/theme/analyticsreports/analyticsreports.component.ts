@@ -1,66 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { DatePipe } from '@angular/common';
-
-interface ReportData {
-  date: Date;
-  duration: number; // in seconds
-  distance: number; // in meters
-}
+import * as Highcharts from 'highcharts';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @Component({
   selector: 'app-theme-analyticsreports',
   templateUrl: './analyticsreports.component.html',
-  styleUrls: ['./analyticsreports.component.scss'],
-  providers: [DatePipe] // Provide DatePipe
+  styleUrls: []
 })
 export class AnalyticsreportsComponent implements OnInit {
+  chart: any;
 
-  reportData: ReportData[] = [];
-  datePipe: DatePipe; // Declare DatePipe
+  // Sample data for the bar graph
+  data = [
+    { date: '2022-01-01', distance: 10 },
+    { date: '2022-01-02', distance: 20 },
+    { date: '2022-01-03', distance: 30 },
+    { date: '2022-01-04', distance: 40 },
+    { date: '2022-01-05', distance: 50 }
+  ];
 
-  constructor(datePipe: DatePipe) { // Inject DatePipe
-    this.datePipe = datePipe;
-  }
+  constructor() { }
 
   ngOnInit(): void {
-    // Generate sample data
-    [
-  { date: new Date('2025-05-12'), duration: 1520, distance: 8730 },
-  { date: new Date('2025-05-11'), duration: 2451, distance: 10325 },
-  { date: new Date('2025-05-10'), duration: 3100, distance: 4990 },
-  { date: new Date('2025-05-09'), duration: 1180, distance: 7120 },
-  { date: new Date('2025-05-08'), duration: 2000, distance: 6670 },
-  { date: new Date('2025-05-07'), duration: 2745, distance: 9430 },
-  { date: new Date('2025-05-06'), duration: 3640, distance: 11100 }
-]
-
-    this.generateSampleData();
+    this.createBarGraph();
   }
 
-  generateSampleData(): void {
-    const today = new Date();
-    for (let i = 0; i < 7; i++) {
-      this.reportData.push({
-        date: new Date(today.setDate(today.getDate() - 1)),
-        duration: Math.floor(Math.random() * 3600) + 600, // Random duration between 10min and 1hr
-        distance: Math.floor(Math.random() * 10000) + 1000, // Random distance between 1km and 11km
-      });
+  // Create the bar graph
+  createBarGraph(): void {
+    Highcharts.chart('bar-graph', {
+  chart: {
+    type: 'column' // <-- this is critical
+  },
+  title: {
+    text: 'Trip Distances'
+  },
+  xAxis: {
+    categories: ['Feb 1', 'Feb 15', 'Mar 1', 'Mar 14', 'Mar 29']
+  },
+  yAxis: {
+    title: {
+      text: 'Distance (km)'
     }
-  }
+  },
+  series: [{
+    name: 'Distance',
+    type: 'column', // <-- must be declared
+    data: [10, 8, 5, 15, 12]
+  }]
+});
 
-  formatDuration(seconds: number): string {
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
-
-    let durationString = '';
-    if (hours > 0) {
-      durationString += `${hours}h `;
-    }
-    if (minutes > 0 || hours > 0) {
-      durationString += `${minutes}m `;
-    }
-    durationString += `${remainingSeconds}s`;
-    return durationString;
   }
 }

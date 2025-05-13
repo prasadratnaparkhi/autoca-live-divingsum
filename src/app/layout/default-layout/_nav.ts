@@ -45,8 +45,8 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-drop' }
   },
   {
-    name: 'Digital Documents',
-    url: '/theme/digitaldocuments',
+    name: 'Digital Document',
+    url: '/theme/digitaldocument',
     iconComponent: { name: 'cil-drop' }
   },
   {

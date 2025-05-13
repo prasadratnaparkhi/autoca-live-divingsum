@@ -16,15 +16,18 @@ import { HelpComponent } from './app/views/theme/help/help.component';
 import { OdometerlogsComponent } from './app/views/theme/odometerlogs/odometerlogs.component';
 import { PrivacypolicyComponent } from './app/views/theme/privacypolicy/privacypolicy.component';
 import { ServicehistoryComponent } from './app/views/theme/servicehistory/servicehistory.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    AnalyticsreportsComponent,
     OdometerlogsComponent,
     ServicehistoryComponent,
     PrivacypolicyComponent,
     HelpComponent,
+
     DigitaldocumentsComponent
   ],
   imports: [
@@ -38,6 +41,7 @@ import { ServicehistoryComponent } from './app/views/theme/servicehistory/servic
     MatTableModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    HighchartsChartModule,
     RouterModule
   ],
   providers: [],

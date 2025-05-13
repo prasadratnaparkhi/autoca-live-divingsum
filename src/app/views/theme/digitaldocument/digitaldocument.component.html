@@ -1,0 +1,23 @@
+<div class="upload-container">
+  <section>
+  <h2>Vehicle Documents</h2>
+  <p>Upload your vehicle documents here.</p>
+</section>
+
+  <h3>Upload a File</h3>
+
+  <input type="file" (change)="onFileSelected($event)" />
+
+  <div *ngIf="selectedFile" class="file-name">
+    Selected file: <strong>{{ selectedFile?.name }}</strong>
+
+  </div>
+
+  <button (click)="onUpload()" [disabled]="!selectedFile">Upload</button>
+  
+
+
+  <div *ngIf="uploadMessage" class="upload-message">
+    {{ uploadMessage }}
+  </div>
+</div>

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-theme-privacypolicy',
   templateUrl: './privacypolicy.component.html',
-  styleUrls: ['./privacypolicy.component.css']
+  styleUrls: ['./privacypolicy.component.scss']
 })
 export class PrivacypolicyComponent {
   Header1 = ' Terms & Conditions ';
